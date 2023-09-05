@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@caoxicheng/auto-merge-git": ["packages/auto-merge-git/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

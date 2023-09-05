@@ -1,0 +1,30 @@
+{
+  "name": "auto-merge-git",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/auto-merge-git/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/auto-merge-git"
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs auto-merge-git {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/auto-merge-git/**/*.ts",
+          "packages/auto-merge-git/package.json"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
